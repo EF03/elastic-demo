@@ -1,0 +1,18 @@
+server:
+  port: 15998
+spring:
+  profiles:
+    include: job
+  application:
+    name: elastic-service
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/elastic_job?serverTimezone=GMT%2B8&autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useSSL=false
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+## Uncomment the following property to allow adding DataSource dynamically.
+dynamic:
+  datasource:
+    allowed-driver-classes: {'org.h2.Driver','org.postgresql.Driver','com.mysql.cj.jdbc.Driver'}
+
+
