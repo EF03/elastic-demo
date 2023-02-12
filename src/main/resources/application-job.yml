@@ -6,13 +6,13 @@ elasticjob:
     max-sleep-time-milliseconds: 3000
     max-retries: 3
   jobs:
-    testJobCronTrigger1:
+    A01_testJobCronTrigger1:
       elasticJobClass: com.example.elasticjobdemo.job.MyElasticJob
       cron: 0/15 * * * * ?
       timeZone: GMT+08:00
       shardingTotalCount: 3
       shardingItemParameters: 0=0,1=1,2=2
-    testJobCronTrigger2:
+    A01_testJobCronTrigger2:
       elasticJobClass: com.example.elasticjobdemo.job.SpringBootDataflowJob
       cron: 0 0/30 * * * ?
       timeZone: GMT+08:00

@@ -1,0 +1,23 @@
+# 查詢全部任務
+GET http://localhost:15999/job/all
+Content-Type: application/json
+
+###
+
+# 刪除單筆任務
+DELETE http://localhost:15999/job/remove
+Content-Type: application/json
+
+{
+  "id":"testJobCronTrigger1"
+}
+
+###
+
+# 增添單筆任務
+POST http://localhost:15999/job/add
+Content-Type: application/json
+
+{
+"id":"A01_testJobCronTrigger1"
+}

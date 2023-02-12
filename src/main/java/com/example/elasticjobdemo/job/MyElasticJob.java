@@ -1,5 +1,7 @@
 package com.example.elasticjobdemo.job;
 
+import cn.hutool.json.JSONUtil;
+import com.example.elasticjobdemo.request.JobReq;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
 import org.apache.shardingsphere.elasticjob.simple.job.SimpleJob;
@@ -18,7 +20,11 @@ public class MyElasticJob implements SimpleJob {
      */
     @Override
     public void execute(ShardingContext shardingContext) {
-        log.info(String.format("定时任务-测试%s %s %d", shardingContext.getJobName(), shardingContext.getTaskId(), shardingContext.getShardingItem()));
+        log.info(String.format("定时任务-测试%s %s %d %s",
+                shardingContext.getJobName(),
+                shardingContext.getTaskId(),
+                shardingContext.getShardingItem(),
+                JSONUtil.toBean(shardingContext.getJobParameter(), JobReq.class).getId()));
     }
 
 }
